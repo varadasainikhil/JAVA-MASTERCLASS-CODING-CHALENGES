@@ -1,31 +1,40 @@
 public class FirstLastDigitSum {
-    // write your code here
-     public static int sumFirstAndLastDigit(int number) {
-        //invalid option
-        if(number&lt;0){
+    public static int sumFirstAndLastDigit(int number) {
+        int count= 1;
+        int sum = 0;
+        int n =number;
+
+        // INVALID CASE -if the number is less than the zero
+        if (number <0) {
             return -1;
         }
-        //variables
-        int lastdigit = 0;
-        int firstdigit=0;
-        int sum=0;
-        //lasdigit calculation
-        lastdigit = number%10;
-        //exception case for number sless than 10
-        if(number &lt;10 &amp;&amp; number&gt;0){
-            sum = 2*number;
 
+        // if the number is single digit then the double of the number must be returned
+        if (number<10) {
+            return number+number;
         }
+        
+        // all the other normal cases
         else{
-        //while loop
-        while (number &gt;=10) {
-        firstdigit = number/10;
-        number = number/10;            
+            //  to count the number of digits in the given number
+            while (number/10 != 0) {
+                count++;
+                number = number/10;
+            }
+            int digit = 0;
+            for (int i = 1; i <= count; i++) {
+                digit = n%10;
+                n=n/10;
+                if (i==1 || i ==count) {
+                    sum+=digit;
+                }
+                System.out.println(digit);
+                
+            }
+            return sum;
+    
         }
-        //sum of the firstdigit and the lastdigit
-        sum = firstdigit+ lastdigit;
+        
     }
-        System.out.println("Sum ="+sum);
-        return sum;        
-    }
+    
 }
