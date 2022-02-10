@@ -1,35 +1,18 @@
-/**
- * EvenDigitSum
- */
 public class EvenDigitSum {
-
-    public static int getEvenDigitsum(int number) {
-        //invalid option
-        if(number < 0){
+    public static int getEvenDigitSum(int number){
+        // For the invalid case
+        if (number < 0) {
             return -1;
         }
-        //variables 
-        int sum = 0;
-        int lastDigit =0;
-
-        //calculations
-        while (number > 0) {
-            //to retrieve last digit
-            lastDigit = number%10;
-
-            //to check if its even
-            if(lastDigit %2 ==0){
-                sum = sum+ lastDigit;
-                number = number /10;
-            }   
-            //if its an odd number         
-            else{
-                number = number /10;
-                continue;
+        int digit=0;
+        int sum=0;
+        while (number!=0) {
+            digit =number%10;
+            number/=10;
+            if (digit %2 ==0) {
+                sum+=digit;
             }
         }
-        System.out.println(sum);
         return sum;
-
     }
 }
