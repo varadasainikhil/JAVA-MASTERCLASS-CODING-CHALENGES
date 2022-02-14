@@ -1,45 +1,54 @@
-public class SimpleCalculator {
-    private double firstNumber;
-    private double secondNumber;
+public class Person {
+    private String firstName;
+    private String lastName;
+    private int age;
 
-    //getters for the simplrcalculator
-    public double getFirstNumber() {
-        return firstNumber;
-    }
-    
-    public double getSecondNumber() {
-        return secondNumber;
+    public String getFirstName(){
+        return firstName;
     }
 
-    //setters for the simple calculator
-    public void setFirstNumber(double firstNumber) {
-        this.firstNumber = firstNumber;
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
     }
 
-    public void setSecondNumber(double secondNumber) {
-        this.secondNumber = secondNumber;
+    public String getLastName(){
+        return lastName;
     }
 
-    public double getAdditionResult() {
-        return firstNumber+secondNumber;
+    public void setLastName(String lastName){
+        this.lastName = lastName;
+    }
+
+    public int getAge(){
+        return age;
+    }
+    public void setAge(int age){
+        if (age<0 || age>100) {
+            age = 0;
+        }
+        else{
+            this.age = age;
+        }
         
     }
 
-    public double getSubtractionResult() {
-        return  firstNumber - secondNumber;
+    public boolean isTeen(){
+        if (age >=13 && age<=19) {
+            return true;
+        }
+        return false;
     }
 
-    public double getMultiplicationResult() {
-        return firstNumber*secondNumber;        
-    }
-
-    public double getDivisionResult() {
-        if (secondNumber == 0) {
-            return 0;
+    public String getFullName(){
+        if (firstName.isEmpty()&&lastName.isEmpty()) {
+            return "";
         }
-        else{
-            return firstNumber/secondNumber; 
+        else if (firstName.isEmpty()) {
+            return lastName;
         }
-               
+        else if (lastName.isEmpty()) {
+            return firstName;
+        }
+        return firstName+" "+lastName;
     }
 }
